@@ -12,10 +12,10 @@ This application enables you to save your favorite websites in the local storage
 
 
 ## Technologies Used
-- HTML.
-- CSS.
-- Bootstrap.
-- JavaScript.
+- HTML5.
+- CSS3.
+- Bootstrap Framework.
+- JavaScript Programming Language.
 
 ## Contributors
 [Salma Hamed](https://github.com/Salma-Hamed)
