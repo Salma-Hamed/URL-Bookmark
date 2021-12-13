@@ -23,7 +23,7 @@ This application enables you to save your favorite websites in the local storage
 
 ## User Guide
 1. To add a URL:
-    - enter the name you want to save the URL as.
+    - Enter the name you want to save the URL as.
     - Enter the URL.
     - Click on the (Save) button.
     - The URL will appear at the bottom of the page.
