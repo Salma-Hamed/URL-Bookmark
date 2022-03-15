@@ -1,4 +1,5 @@
 var x = document.getElementById('site_name');
+var num = 0;
 var y = document.getElementById('site_url');
 var p1_in = document.getElementById('p1');
 var p2_in = document.getElementById('p2');
@@ -38,6 +39,22 @@ function check(){
         p2_in.style.display = "block";
         count++;
     }
+    num = 0;
+    for(var c = 0; c < y.value.length; c++)
+    {
+        if(y.value[c] == '.' && y.value.slice(c - 3, 3).toLowerCase() != "www")
+        {
+            num++;
+            console.log(num);
+            console.log(y.value.slice(c - 3, 3).toLowerCase());
+        }
+    }
+    if(num < 1)
+    {
+        p2_in.innerHTML = "Url must contain TLD (e.g. \".com\")";
+        p2_in.style.display = "block";
+        count++;
+    }
     return count;
 
 }
@@ -55,6 +72,23 @@ function add(){
         {
             item.url = "https://" + y.value;
         }
+        // add www. if it doesn't exist
+        for(var i = 0; i < item.url.length; i++)
+        {
+            if(item.url.slice(0, i + 1) == "https://")
+            {
+                if(item.url[i + 1].toLowerCase() != "w" && item.url[i + 1] != '/')
+                {
+                    item.url = item.url.slice(0, i + 1) + "www." + item.url.slice(i + 1);
+                    break;
+                }
+                else
+                {
+                    item.url = item.url.toLowerCase();
+                }
+            }
+        }
+        
         items.push(item);
         localStorage.setItem('items', JSON.stringify(items));
         x.value = "";
